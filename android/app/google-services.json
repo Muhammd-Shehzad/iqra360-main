@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "337687484439",
+    "project_id": "iqra360-3736c",
+    "storage_bucket": "iqra360-3736c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337687484439:android:06ca03560f4872f32ae452",
+        "android_client_info": {
+          "package_name": "com.example.iqra360"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3kMjU_htfxqK-M8_qwq75ekTK_47oWxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
