@@ -279,16 +279,31 @@ class _JuzDetailScreenState extends State<JuzDetailScreen> {
                                 onPressed: () => fetchTafseer(ayahNumber),
                                 child: const Text("Tafseer"),
                               ),
+                              const SizedBox(width: 12),
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white24,
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 14,
+                                    vertical: 6,
+                                  ),
+                                ),
+                                onPressed: () {},
+                                child: Icon(Icons.play_arrow),
+                              ),
                             ],
                           ),
                           const SizedBox(height: 10),
-                          Text(
-                            ayah['text'] + " " + ayahNumberText,
-                            textAlign: TextAlign.right,
-                            style: const TextStyle(
-                              fontSize: 22,
-                              color: Colors.white,
-                              fontFamily: 'Kitab',
+                          Center(
+                            child: Text(
+                              ayah['text'] + " " + ayahNumberText,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 22,
+                                color: Colors.white,
+                                fontFamily: 'Kitab',
+                              ),
                             ),
                           ),
                           if (showTranslationFor.contains(ayahNumber) &&
@@ -297,12 +312,15 @@ class _JuzDetailScreenState extends State<JuzDetailScreen> {
                               padding: const EdgeInsets.only(top: 12.0),
                               child: Directionality(
                                 textDirection: TextDirection.rtl,
-                                child: Text(
-                                  translation,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white70,
-                                    fontFamily: 'NotoNastaliq',
+                                child: Center(
+                                  child: Text(
+                                    translation,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white70,
+                                      fontFamily: 'NotoNastaliq',
+                                    ),
                                   ),
                                 ),
                               ),

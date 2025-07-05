@@ -73,7 +73,7 @@ class _DuainState extends State<Duain> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 10.h),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: ListView.builder(
@@ -102,24 +102,17 @@ class _DuainState extends State<Duain> {
                                 ],
                               ),
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Align(
-                                    alignment:
-                                        duainViewModel.isUrdu
-                                            ? Alignment.centerRight
-                                            : Alignment.centerLeft,
-                                    child: Text(
-                                      '${index + 1} # ${dua['title']}',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18.sp,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily:
-                                            duainViewModel.isUrdu
-                                                ? 'JameelNoori'
-                                                : null,
-                                      ),
+                                  Text(
+                                    '${index + 1} # ${dua['title']}',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily:
+                                          duainViewModel.isUrdu
+                                              ? 'JameelNoori'
+                                              : null,
                                     ),
                                   ),
                                   SizedBox(height: 6.h),
