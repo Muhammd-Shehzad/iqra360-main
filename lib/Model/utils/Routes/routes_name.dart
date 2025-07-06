@@ -20,6 +20,6 @@ class RoutesName {
   static const String AnNaasScreen = 'an_naas_screen';
   static const String AlQuranScreen = 'al_quran_screen';
   static const String AudioQuranScreen = 'audio_quran_screen';
-  static const String TranslationScreen = 'translation_screen';
   static const String SettingScreen = 'setting_screen';
+  static const String QariListScreen = 'qari_list_screen';
 }

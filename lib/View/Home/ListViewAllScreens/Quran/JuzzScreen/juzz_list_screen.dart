@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iqra360/View/Home/ListViewAllScreens/Surah/JuzzScreen/juzz_detail_screen.dart';
+import 'package:iqra360/View/Home/ListViewAllScreens/Quran/JuzzScreen/juzz_detail_screen.dart';
 
 class JuzListScreen extends StatelessWidget {
   final List<Map<String, String>> paraList = [

@@ -12,7 +12,7 @@ class QuranViewModel extends ChangeNotifier {
   void listViewOnTapFun(int index) {
     switch (index) {
       case 0:
-        Get.toNamed(RoutesName.SurahScreen, arguments: 0);
+        Get.toNamed(RoutesName.QariListScreen, arguments: 0);
         break;
       case 1:
         Get.toNamed(RoutesName.JuzScreen, arguments: 1);

@@ -13,7 +13,6 @@ import 'package:iqra360/Model/Setting/setting_view_model.dart';
 import 'package:iqra360/Model/SplahScreen/splash_view_model.dart';
 import 'package:iqra360/Model/Surah/AlQuran/al_quran_view_model.dart';
 import 'package:iqra360/Model/Surah/surah_screen_view_model.dart';
-import 'package:iqra360/View/Home/ListViewAllScreens/Surah/Translation/translation_view_model.dart';
 import 'package:iqra360/View/Setting/languages.dart';
 import 'package:iqra360/firebase_options.dart';
 import 'package:iqra360/Model/utils/Routes/routes.dart';
@@ -112,9 +111,7 @@ void main() async {
                 create: (context) => HomeScreenViewModel(),
               ),
               ChangeNotifierProvider(create: (context) => AlQuranViewModel()),
-              ChangeNotifierProvider(
-                create: (context) => TranslationViewModel(),
-              ),
+             
             ],
             child: GetMaterialApp(
               initialRoute: RoutesName.SplashScreen,
