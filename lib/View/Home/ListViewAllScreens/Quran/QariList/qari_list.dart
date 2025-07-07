@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iqra360/Model/QariModel/qari_model.dart';
+import 'package:iqra360/View/Home/ListViewAllScreens/Quran/QariList/qari_view_model.dart';
 
 class QariList extends StatefulWidget {
   const QariList({super.key});
@@ -10,6 +12,7 @@ class QariList extends StatefulWidget {
 }
 
 class _QariListState extends State<QariList> {
+  QariViewModel qariViewModel = QariViewModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,46 +59,86 @@ class _QariListState extends State<QariList> {
               top: 5,
               left: 0,
               right: 0,
-              child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Container(
-                      height: 60.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16.r),
-                        color: Colors.white.withOpacity(0.1),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          CircleAvatar(radius: 25.r),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Abdur-Rahman As-Sudais',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w500,
+              bottom: 0,
+              child: FutureBuilder(
+                future: qariViewModel.getQariList(),
+                builder: (
+                  BuildContext context,
+                  AsyncSnapshot<List<QariModel>> snapshot,
+                ) {
+                  if (snapshot.hasError) {
+                    return Center(child: Text('No Qari Data is Found'));
+                  } else if (snapshot.connectionState ==
+                      ConnectionState.waiting) {
+                    return CircularProgressIndicator(color: Colors.white);
+                  }
+                  return ListView.builder(
+                    padding: EdgeInsets.only(
+                      bottom: 100.h,
+                    ), // avoid splash image overlap
+                    itemCount: qariViewModel.qariList.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 6,
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            
+                          },
+                          child: Container(
+                            height: 60.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16.r),
+                              color: Colors.white.withOpacity(0.1),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(width: 12.w),
+                                CircleAvatar(
+                                  radius: 25.r,
+                                  // backgroundImage: AssetImage(
+                                  //   'assets/qari_placeholder.png',
+                                  // ), // Optional
                                 ),
-                              ),
-                              Text(
-                                'Saudi Arabia-Imam Masjid Al-Haram (Makkah)',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w500,
+                                SizedBox(width: 12.w),
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        qariViewModel.qariList[index].name
+                                            .toString(),
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      Text(
+                                        qariViewModel.qariList[index].name
+                                            .toString(),
+                                        style: TextStyle(
+                                          color: Colors.white70,
+                                          fontSize: 10.sp,
+                                        ),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
+                        ),
+                      );
+                    },
                   );
                 },
               ),
