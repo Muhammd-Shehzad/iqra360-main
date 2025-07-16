@@ -111,16 +111,15 @@ void main() async {
                 create: (context) => HomeScreenViewModel(),
               ),
               ChangeNotifierProvider(create: (context) => AlQuranViewModel()),
-             
             ],
             child: GetMaterialApp(
               initialRoute: RoutesName.SplashScreen,
               onGenerateRoute: Routes.generateRoute,
               debugShowCheckedModeBanner: false,
               translations: Languages(),
-              locale: Locale('ur','PK'),
-              fallbackLocale: Locale('en','US'),            
-              ),
+              locale: Locale('ur', 'PK'),
+              fallbackLocale: Locale('en', 'US'),
+            ),
           ),
     ),
   );

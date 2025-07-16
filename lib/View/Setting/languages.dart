@@ -325,6 +325,9 @@ class Languages extends Translations {
       'About':'About',
       'App version, developer info':'App version, developer info',
       'Logout':'Logout',
+      'Qaris List':'Qaris List',
+      'Surah List':'Surah List', "Translation": "Translation",
+      "Tafseer": "Tafseer",
       
     },
     'ur_PK': {
@@ -616,6 +619,10 @@ class Languages extends Translations {
   'About': 'ایپ کے بارے میں',
   'App version, developer info': 'ایپ ورژن، ڈیولپر کی معلومات',
   'Logout': 'لاگ آؤٹ',
+  'Qaris List' :'قاریوں کی فہرست',
+  'Surah List' : 'سورہ فہرست',
+  "Tafseer":'تفسیر',
+  "Translation":'ترجمہ'
     },
   };
 

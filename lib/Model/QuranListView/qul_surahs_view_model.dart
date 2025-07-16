@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:iqra360/Model/utils/Routes/routes_name.dart';
 
 class QulSurahsViewModel extends ChangeNotifier {
   List<Map<String, dynamic>> surahsData = [
@@ -43,46 +40,46 @@ class QulSurahsViewModel extends ChangeNotifier {
     },
   ];
 
-  void listViewOnTapFun(int index) {
-    switch (index) {
-      case 0:
-        Get.toNamed(RoutesName.AlKafirounScreen, arguments: 0);
-        break;
-      case 1:
-        Get.toNamed(RoutesName.AlIkhlasScreen, arguments: 1);
-        break;
-      case 2:
-        Get.toNamed(RoutesName.AlFalaqScreen, arguments: 2);
-        break;
-      case 3:
-        Get.toNamed(RoutesName.AnNaasScreen, arguments: 3);
-        break;
-      default:
-        Get.to(
-          () => Scaffold(
-            body: Center(
-              child: Container(
-                height: 100.h,
-                width: 200.w,
-                decoration: BoxDecoration(
-                  color: Color(0xFF1A237E),
-                  borderRadius: BorderRadius.circular(10.sp),
-                ),
-                child: Center(
-                  child: Text(
-                    'No Route Found',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        );
-        break;
-    }
-  }
+  // void listViewOnTapFun(int index) {
+  //   switch (index) {
+  //     case 0:
+  //       Get.toNamed(RoutesName.AlKafirounScreen, arguments: 0);
+  //       break;
+  //     case 1:
+  //       Get.toNamed(RoutesName.AlIkhlasScreen, arguments: 1);
+  //       break;
+  //     case 2:
+  //       Get.toNamed(RoutesName.AlFalaqScreen, arguments: 2);
+  //       break;
+  //     case 3:
+  //       Get.toNamed(RoutesName.AnNaasScreen, arguments: 3);
+  //       break;
+  //     default:
+  //       Get.to(
+  //         () => Scaffold(
+  //           body: Center(
+  //             child: Container(
+  //               height: 100.h,
+  //               width: 200.w,
+  //               decoration: BoxDecoration(
+  //                 color: Color(0xFF1A237E),
+  //                 borderRadius: BorderRadius.circular(10.sp),
+  //               ),
+  //               child: Center(
+  //                 child: Text(
+  //                   'No Route Found',
+  //                   style: TextStyle(
+  //                     color: Colors.white,
+  //                     fontSize: 18.sp,
+  //                     fontWeight: FontWeight.bold,
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //         ),
+  //       );
+  //       break;
+  //   }
+  // }
 }

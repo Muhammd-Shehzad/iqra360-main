@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:iqra360/Model/utils/Routes/routes_name.dart';
 
 class JuzDetailScreen extends StatefulWidget {
   final int juzNumber;
@@ -264,7 +266,7 @@ class _JuzDetailScreenState extends State<JuzDetailScreen> {
                                   ),
                                 ),
                                 onPressed: () => toggleTranslation(ayahNumber),
-                                child: const Text("Translation"),
+                                child: Text("Translation".tr),
                               ),
                               const SizedBox(width: 12),
                               ElevatedButton(
@@ -277,7 +279,7 @@ class _JuzDetailScreenState extends State<JuzDetailScreen> {
                                   ),
                                 ),
                                 onPressed: () => fetchTafseer(ayahNumber),
-                                child: const Text("Tafseer"),
+                                child: Text("Tafseer".tr),
                               ),
                               const SizedBox(width: 12),
                               ElevatedButton(
@@ -290,7 +292,10 @@ class _JuzDetailScreenState extends State<JuzDetailScreen> {
                                   ),
                                 ),
                                 onPressed: () {},
-                                child: Icon(Icons.play_arrow),
+                                child: Icon(
+                                  Icons.play_arrow,
+                                  color: Colors.yellow,
+                                ),
                               ),
                             ],
                           ),

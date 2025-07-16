@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:iqra360/Model/utils/Routes/routes_name.dart';
 
 class CustomTextRich extends StatelessWidget {
-  CustomTextRich({
+  const CustomTextRich({
     super.key,
     this.text1,
     this.text2,

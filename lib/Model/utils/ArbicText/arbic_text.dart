@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ArbicText extends StatelessWidget {
   const ArbicText({super.key, this.text, this.textSize});

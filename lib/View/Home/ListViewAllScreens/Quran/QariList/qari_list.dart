@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iqra360/Model/QariModel/qari_model.dart';
+import 'package:iqra360/Model/utils/Routes/routes_name.dart';
 import 'package:iqra360/View/Home/ListViewAllScreens/Quran/QariList/qari_view_model.dart';
 
 class QariList extends StatefulWidget {
@@ -23,7 +24,7 @@ class _QariListState extends State<QariList> {
           child: Icon(Icons.arrow_back_ios_new, color: Colors.white),
         ),
         title: Text(
-          'Quran'.tr,
+          'Qari List'.tr,
           style: TextStyle(
             color: Colors.white,
             fontSize: 18.sp,
@@ -70,7 +71,9 @@ class _QariListState extends State<QariList> {
                     return Center(child: Text('No Qari Data is Found'));
                   } else if (snapshot.connectionState ==
                       ConnectionState.waiting) {
-                    return CircularProgressIndicator(color: Colors.white);
+                    return Center(
+                      child: CircularProgressIndicator(color: Colors.white),
+                    );
                   }
                   return ListView.builder(
                     padding: EdgeInsets.only(
@@ -85,7 +88,7 @@ class _QariListState extends State<QariList> {
                         ),
                         child: InkWell(
                           onTap: () {
-                            
+                            Get.toNamed(RoutesName.AudioSurahsScreen);
                           },
                           child: Container(
                             height: 60.h,
@@ -107,7 +110,8 @@ class _QariListState extends State<QariList> {
                                 Expanded(
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         qariViewModel.qariList[index].name

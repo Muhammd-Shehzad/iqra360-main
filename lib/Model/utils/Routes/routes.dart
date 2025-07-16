@@ -3,16 +3,16 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/src/routes/default_route.dart';
 import 'package:iqra360/View/Home/ListViewAllScreens/Duain/duain.dart';
 import 'package:iqra360/View/Home/ListViewAllScreens/Names/names.dart';
+import 'package:iqra360/View/Home/ListViewAllScreens/Quran/Audio/audio_surahs_screen.dart';
 import 'package:iqra360/View/Home/ListViewAllScreens/Quran/QariList/qari_list.dart';
+import 'package:iqra360/View/Home/ListViewAllScreens/Quran/Surah/SurahListScreen/surah_list_screen.dart';
 import 'package:iqra360/View/Home/ListViewAllScreens/Quran/quran.dart';
 import 'package:iqra360/View/Home/ListViewAllScreens/Tasbeeh/tasbeeh.dart';
 import 'package:iqra360/View/Home/ListViewAllScreens/Quran/Surah/al_quran.dart';
-import 'package:iqra360/View/Home/ListViewAllScreens/Quran/Surah/surah_screen.dart';
 import 'package:iqra360/View/Home/ListViewAllScreens/Quran/JuzzScreen/juzz_list_screen.dart';
 import 'package:iqra360/View/Auth/Login/login.dart';
 import 'package:iqra360/View/Auth/SignUp/sign_up.dart';
 import 'package:iqra360/View/Home/home_screen.dart';
-import 'package:iqra360/View/Setting/languages.dart';
 import 'package:iqra360/View/Setting/setting_screen.dart';
 import 'package:iqra360/View/SplahScreen/splash_screen.dart';
 import 'package:iqra360/Model/utils/Routes/routes_name.dart';
@@ -28,7 +28,6 @@ class Routes {
         return GetPageRoute(settings: settings, page: () => SignUp());
       case RoutesName.HomeScreen:
         return GetPageRoute(settings: settings, page: () => HomeScreen());
-
       case RoutesName.Names:
         return GetPageRoute(settings: settings, page: () => Names());
       case RoutesName.DuainScreen:
@@ -43,13 +42,12 @@ class Routes {
         return GetPageRoute(settings: settings, page: () => JuzListScreen());
       case RoutesName.AlQuranScreen:
         return GetPageRoute(settings: settings, page: () => AlQuran());
-      
       case RoutesName.SettingScreen:
         return GetPageRoute(settings: settings, page: () => SettingsScreen());
-      
       case RoutesName.QariListScreen:
         return GetPageRoute(settings: settings, page: () => QariList());
-      
+      case RoutesName.AudioSurahsScreen:
+        return GetPageRoute(settings: settings, page: () => AudioSurahsScreen());
 
       default:
         return GetPageRoute(

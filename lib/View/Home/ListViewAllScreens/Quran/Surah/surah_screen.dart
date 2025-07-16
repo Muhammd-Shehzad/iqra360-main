@@ -269,122 +269,9 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-class SurahListScreen extends StatefulWidget {
-  const SurahListScreen({super.key});
 
-  @override
-  State<SurahListScreen> createState() => _SurahListScreenState();
-}
-
-class _SurahListScreenState extends State<SurahListScreen> {
-  List<Map<String, dynamic>> surahs = [];
-  bool isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    fetchSurahList();
-  }
-
-  Future<void> fetchSurahList() async {
-    final response = await http.get(
-      Uri.parse('http://api.alquran.cloud/v1/surah'),
-    );
-    final json = jsonDecode(response.body);
-
-    if (json['code'] == 200) {
-      setState(() {
-        surahs = List<Map<String, dynamic>>.from(json['data']);
-        isLoading = false;
-      });
-    } else {
-      throw Exception("Failed to load Surah list");
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF0D47A1),
-      appBar: AppBar(
-        leading: InkWell(
-          onTap: () {
-            Get.back();
-          },
-          child: Icon(Icons.arrow_back_ios, color: Colors.white),
-        ),
-        backgroundColor: const Color(0xFF0D47A1),
-        title: Text('Surah List', style: TextStyle(color: Colors.white)),
-        centerTitle: true,
-      ),
-      body:
-          isLoading
-              ? const Center(
-                child: CircularProgressIndicator(color: Colors.white),
-              )
-              : ListView.builder(
-                itemCount: surahs.length,
-                itemBuilder: (context, index) {
-                  final surah = surahs[index];
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: InkWell(
-                      onTap: () {
-                        Get.to(
-                          SurahDetailScreen(
-                            surahNumber: surah['number'],
-                            surahName: surah['name'],
-                          ),
-                        );
-                      },
-                      child: Container(
-                        height: 50.h,
-                        width: 200.w,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF1E3A8A),
-                          borderRadius: BorderRadius.circular(12.r),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    surah['englishName'],
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                    ),
-                                    textAlign: TextAlign.end,
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                surah['name'],
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontFamily: 'Amiri',
-                                ),
-                                textAlign: TextAlign.end,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-    );
-  }
-}
 
 class SurahDetailScreen extends StatefulWidget {
   final int surahNumber;
@@ -499,13 +386,15 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
                         vertical: 10,
                         horizontal: 12,
                       ),
-                      child: Text(
-                        '${ayah['text']} $ayahNumberText',
-                        textAlign: TextAlign.right,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontFamily: 'Amiri',
+                      child: Center(
+                        child: Text(
+                          '${ayah['text']} $ayahNumberText',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontFamily: 'Amiri',
+                          ),
                         ),
                       ),
                     ),
